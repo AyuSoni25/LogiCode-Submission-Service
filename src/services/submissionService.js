@@ -9,15 +9,14 @@ class SubmissionService {
         return 'pong'
     }
 
-    async addSubmission(submission) {
-        const submission = this.submissionRepository.createSubmission(submission);
+    async addSubmission(submissionPayload) {
+        const submission = await this.submissionRepository.createSubmission(submissionPayload);
         if(!submission){
             //TODO : Add error handling here
             throw {
                 message: 'Not able to create submission'
             }
         }
-        console.log(submission);
         const response = await submissionQueueProducer(submission);
         return {queueResponse: response, submission};
     }
