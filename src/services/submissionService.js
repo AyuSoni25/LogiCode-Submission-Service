@@ -36,6 +36,8 @@ class SubmissionService {
             outputCase: problemAdminApiResponse.data.testCases[0].output
             }
         });
+
+        //TODO: add handling of all test cases here
         return {queueResponse: response, submission};
     }
 }
