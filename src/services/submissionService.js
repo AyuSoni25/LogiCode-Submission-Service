@@ -44,6 +44,11 @@ class SubmissionService {
         //TODO: add handling of all test cases here
         return {queueResponse: response, submission};
     }
+
+    async updateStatusOfSubmission(submissionId, status) {
+        const response = await this.submissionRepository.updateStatusOfSubmission(submissionId, status);
+        return response;
+    }
 }
 
 module.exports = SubmissionService
